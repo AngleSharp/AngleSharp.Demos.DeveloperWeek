@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:AngleSharp.Demos.DeveloperWeek"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    <Window.DataContext>
+        <local:MainViewModel />
+    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60" />
@@ -94,7 +97,7 @@
                     <Button Grid.Column="4"
                             Grid.RowSpan="3"
                             Command="{Binding Submit}"
-                            Content="Navigate" />
+                            Content="Submit" />
                 </Grid>
             </TabItem>
         </TabControl>

@@ -12,6 +12,7 @@
 
         public RelayCommand(Action action)
         {
+            _action = action;
             _enabled = true;
         }
 
