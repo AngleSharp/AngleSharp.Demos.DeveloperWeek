@@ -90,14 +90,22 @@ namespace AngleSharp.Demos.DeveloperWeek
             Address = _accessor.CurrentUrl;
         }
 
-        void ExecuteNavigate()
+        async void ExecuteNavigate()
         {
-            MessageBox.Show(Selector);
+            IsLoading = true;
+            await _accessor.NavigateToLink(_selector);
+            Update();
         }
 
-        void ExecuteSubmit()
+        async void ExecuteSubmit()
         {
-            MessageBox.Show(Username + Password);
+            IsLoading = true;
+            await _accessor.SubmitForm(new Dictionary<String, String>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["user"] = _userName,
+                ["password"] = _password
+            });
+            Update();
         }
     }
 }

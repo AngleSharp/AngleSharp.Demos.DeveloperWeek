@@ -27,6 +27,9 @@
                  Margin="10"
                  Grid.Row="1"
                  Text="{Binding Content}"
+                 ScrollViewer.CanContentScroll="True"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto"
+                 ScrollViewer.HorizontalScrollBarVisibility="Auto"
                  VerticalContentAlignment="Top" 
                  HorizontalContentAlignment="Left" />
 
