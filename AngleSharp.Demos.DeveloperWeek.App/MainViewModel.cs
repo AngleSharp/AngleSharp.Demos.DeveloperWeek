@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AngleSharp.Demos.DeveloperWeek.Samples;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,16 +11,36 @@ namespace AngleSharp.Demos.DeveloperWeek
 {
     sealed class MainViewModel : BaseViewModel
     {
+        WebsiteAccessor _accessor;
         String _content;
         String _address;
         String _userName;
         String _password;
         String _selector;
+        Boolean _loading;
 
         public MainViewModel()
         {
             Submit = new RelayCommand(ExecuteSubmit);
             Navigate = new RelayCommand(ExecuteNavigate);
+            IsLoading = true;
+            WebsiteAccessor.CreateAsync("http://localhost:54361").ContinueWith(m =>
+            {
+                _accessor = m.Result;
+                Update();
+            }, TaskScheduler.FromCurrentSynchronizationContext());
+        }
+
+        public Boolean IsLoading
+        {
+            get { return _loading; }
+            set
+            {
+                _loading = value;
+                Submit.IsEnabled = !value;
+                Navigate.IsEnabled = !value;
+                TriggerChanged();
+            }
         }
 
         public String Content
@@ -52,14 +73,21 @@ namespace AngleSharp.Demos.DeveloperWeek
             set { _password = value; TriggerChanged(); }
         }
 
-        public ICommand Submit
+        public RelayCommand Submit
         {
             get;
         }
 
-        public ICommand Navigate
+        public RelayCommand Navigate
         {
             get;
+        }
+
+        void Update()
+        {
+            IsLoading = false;
+            Content = _accessor.CurrentSource;
+            Address = _accessor.CurrentUrl;
         }
 
         void ExecuteNavigate()

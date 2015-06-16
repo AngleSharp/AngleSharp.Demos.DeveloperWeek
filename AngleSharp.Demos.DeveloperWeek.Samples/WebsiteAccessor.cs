@@ -15,7 +15,7 @@
             _context = context;
         }
 
-        public static async Task<WebsiteAccessor> CreateAsync(string baseUrl = "http://localhost:54361")
+        public static async Task<WebsiteAccessor> CreateAsync(string baseUrl)
         {
             var url = Url.Create(baseUrl);
 
