@@ -13,12 +13,12 @@
 </div>
 
 <div class="row">
-    <p>Let's follow the link to @Html.ActionLink("log in here", "LogIn", null, new { }).</p>
+    <p>Let's follow the link to @Html.ActionLink("log in here", "LogIn", null, new { @class = "log-in" }).</p>
 </div> 
 
 @if (Request.IsAuthenticated)
 {
 <div class="row">
-    <p>Access @Html.ActionLink("our secret", "Secret", null, new { }).</p>
+    <p>Access @Html.ActionLink("our secret", "Secret", null, new { @class = "secret-link" }).</p>
 </div> 
 }
