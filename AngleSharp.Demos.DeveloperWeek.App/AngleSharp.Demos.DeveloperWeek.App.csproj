@@ -97,6 +97,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AngleSharp.Demos.DeveloperWeek.Samples\AngleSharp.Demos.DeveloperWeek.Samples.csproj">
+      <Project>{39d6e3ba-af66-4c6c-8387-acd4147a0658}</Project>
+      <Name>AngleSharp.Demos.DeveloperWeek.Samples</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
