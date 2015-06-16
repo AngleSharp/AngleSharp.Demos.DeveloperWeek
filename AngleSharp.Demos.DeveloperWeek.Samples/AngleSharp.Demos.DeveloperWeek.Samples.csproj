@@ -35,6 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebsiteAccessor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="AngleSharp, Version=0.8.4.40085, Culture=neutral, processorArchitecture=MSIL">
