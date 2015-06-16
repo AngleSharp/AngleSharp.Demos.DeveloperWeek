@@ -7,6 +7,56 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+
+        <TextBox TextWrapping="NoWrap" 
+                 Margin="10"
+                 Text="{Binding Content}"
+                 VerticalContentAlignment="Top" 
+                 HorizontalContentAlignment="Left" />
+
+        <TabControl Grid.Row="1">
+            <TabItem Header="Navigate">
+                <Grid Margin="10">
+                    <TextBox Width="200"
+                             Text="{Binding Selector}"
+                             HorizontalAlignment="Left" />
+
+                    <Button Width="100" 
+                            Command="{Binding Navigate}"
+                            Content="Navigate"
+                            HorizontalAlignment="Right" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Form">
+                <Grid Margin="10">
+                    <TextBlock Text="User:" />
+                    
+                    <TextBox Width="150"
+                             Height="30"
+                             VerticalAlignment="Bottom"
+                             Text="{Binding Username}"
+                             HorizontalAlignment="Left" />
+
+                    <TextBlock Text="Password:"
+                               Margin="170 0 0 0"/>
+
+                    <TextBox Width="150"
+                             Margin="170 0 0 0"
+                             Height="30"
+                             VerticalAlignment="Bottom"
+                             Text="{Binding Password}"
+                             HorizontalAlignment="Left" />
+
+                    <Button Width="100" 
+                            Command="{Binding Submit}"
+                            Content="Navigate"
+                            HorizontalAlignment="Right" />
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
