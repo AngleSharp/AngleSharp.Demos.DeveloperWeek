@@ -1,0 +1,31 @@
+﻿@model AngleSharp.Demos.DeveloperWeek.Website.Models.LogInModel
+@{
+    ViewBag.Title = "LogIn";
+}
+
+<h2>Log In</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md6">
+            @Html.LabelFor(m => m.User)
+        </div>
+        <div class="col-md6">
+            @Html.TextBoxFor(m => m.User)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md6">
+            @Html.LabelFor(m => m.Password)
+        </div>
+        <div class="col-md6">
+            @Html.TextBoxFor(m => m.Password)
+        </div>
+    </div>
+
+    <div class="row">
+        <button type="submit">Login</button>
+    </div>
+}
