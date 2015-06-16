@@ -8,53 +8,93 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
             <RowDefinition />
-            <RowDefinition Height="100" />
+            <RowDefinition Height="110" />
         </Grid.RowDefinitions>
 
+        <TextBox Margin="10"
+                 IsReadOnly="True"
+                 Grid.Row="0"
+                 VerticalContentAlignment="Center"
+                 Text="{Binding Address}" />
+
         <TextBox TextWrapping="NoWrap" 
+                 IsReadOnly="True"
                  Margin="10"
+                 Grid.Row="1"
                  Text="{Binding Content}"
                  VerticalContentAlignment="Top" 
                  HorizontalContentAlignment="Left" />
 
-        <TabControl Grid.Row="1">
+        <TabControl Grid.Row="2">
             <TabItem Header="Navigate">
                 <Grid Margin="10">
-                    <TextBox Width="200"
-                             Text="{Binding Selector}"
-                             HorizontalAlignment="Left" />
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="2*" />
+                    </Grid.RowDefinitions>
 
-                    <Button Width="100" 
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="13*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="6*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <TextBlock Text="Query:"
+                               Grid.Column="0"
+                               Grid.Row="0"/>
+                    
+                    <TextBox Grid.Column="0"
+                             Grid.Row="2"
+                             VerticalContentAlignment="Center"
+                             Text="{Binding Selector}" />
+
+                    <Button Grid.RowSpan="3"
+                            Grid.Column="3"
                             Command="{Binding Navigate}"
-                            Content="Navigate"
-                            HorizontalAlignment="Right" />
+                            Content="Navigate" />
                 </Grid>
             </TabItem>
             <TabItem Header="Form">
                 <Grid Margin="10">
-                    <TextBlock Text="User:" />
-                    
-                    <TextBox Width="150"
-                             Height="30"
-                             VerticalAlignment="Bottom"
-                             Text="{Binding Username}"
-                             HorizontalAlignment="Left" />
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="2*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="6*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="6*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="6*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="User:"
+                               Grid.Column="0"
+                               Grid.Row="0"/>
+
+                    <TextBox Grid.Column="0"
+                             Grid.Row="2"
+                             VerticalContentAlignment="Center"
+                             Text="{Binding Username}" />
 
                     <TextBlock Text="Password:"
-                               Margin="170 0 0 0"/>
+                               Grid.Column="2"
+                               Grid.Row="0" />
 
-                    <TextBox Width="150"
-                             Margin="170 0 0 0"
-                             Height="30"
-                             VerticalAlignment="Bottom"
-                             Text="{Binding Password}"
-                             HorizontalAlignment="Left" />
+                    <TextBox Grid.Column="2"
+                             Grid.Row="2"
+                             VerticalContentAlignment="Center"
+                             Text="{Binding Password}" />
 
-                    <Button Width="100" 
+                    <Button Grid.Column="4"
+                            Grid.RowSpan="3"
                             Command="{Binding Submit}"
-                            Content="Navigate"
-                            HorizontalAlignment="Right" />
+                            Content="Navigate" />
                 </Grid>
             </TabItem>
         </TabControl>
