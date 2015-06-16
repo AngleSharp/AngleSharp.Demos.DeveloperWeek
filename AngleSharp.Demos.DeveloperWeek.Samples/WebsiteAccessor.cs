@@ -22,7 +22,9 @@
             if (url.IsInvalid)
                 throw new ArgumentException("The provided parameter does not form a valid URL.", nameof(baseUrl));
 
-            var config = new Configuration().WithDefaultLoader().With(new SharedCookieService());
+            var config = Configuration.Default
+                .WithDefaultLoader()
+                .With(new SharedCookieService());
             var context = BrowsingContext.New(config);
             await context.OpenAsync(url);
             return new WebsiteAccessor(context);
