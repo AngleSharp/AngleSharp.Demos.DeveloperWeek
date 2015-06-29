@@ -18,6 +18,7 @@
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult LogIn(LogInModel model)
         {
             if (model.User == "User" && model.Password == "secret")
