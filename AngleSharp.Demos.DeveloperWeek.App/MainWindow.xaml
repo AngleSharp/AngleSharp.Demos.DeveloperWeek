@@ -103,6 +103,18 @@
                             Content="Submit" />
                 </Grid>
             </TabItem>
+            <TabItem Header="Automated">
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="14*" />
+                        <ColumnDefinition Width="6*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="1"
+                            Command="{Binding Everything}"
+                            Content="Run it!" />
+                </Grid>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>

@@ -23,6 +23,7 @@ namespace AngleSharp.Demos.DeveloperWeek
         {
             Submit = new RelayCommand(ExecuteSubmit);
             Navigate = new RelayCommand(ExecuteNavigate);
+            Everything = new RelayCommand(ExecuteEverything);
             IsLoading = true;
             WebsiteAccessor.CreateAsync("http://localhost:54361").ContinueWith(m =>
             {
@@ -83,6 +84,11 @@ namespace AngleSharp.Demos.DeveloperWeek
             get;
         }
 
+        public RelayCommand Everything
+        {
+            get;
+        }
+
         void Update()
         {
             IsLoading = false;
@@ -106,6 +112,21 @@ namespace AngleSharp.Demos.DeveloperWeek
                 ["password"] = _password
             });
             Update();
+        }
+
+        async void ExecuteEverything()
+        {
+            IsLoading = true;
+            await _accessor.NavigateToLink(".log-in");
+            await _accessor.SubmitForm(new Dictionary<String, String>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["user"] = "User",
+                ["password"] = "secret"
+            });
+            await _accessor.NavigateToLink(".secret-link");
+            Update();
+            var secret = _accessor.GetTextOf("#secret");
+            MessageBox.Show($"The secret is {secret}.");
         }
     }
 }
