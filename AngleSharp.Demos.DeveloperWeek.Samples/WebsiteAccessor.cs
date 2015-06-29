@@ -47,6 +47,12 @@
             await (link?.Navigate() ?? (Task)Task.FromResult(false));
         }
 
+        public string GetTextOf(string selector)
+        {
+            var document = _context.Active;
+            return document.QuerySelector(selector)?.TextContent;
+        }
+
         public async Task SubmitForm(IDictionary<String, String> fields)
         {
             var document = _context.Active;
