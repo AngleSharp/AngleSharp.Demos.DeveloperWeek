@@ -1,14 +1,11 @@
-﻿using AngleSharp.Demos.DeveloperWeek.Samples;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Input;
-
-namespace AngleSharp.Demos.DeveloperWeek
+﻿namespace AngleSharp.Demos.DeveloperWeek
 {
+    using AngleSharp.Demos.DeveloperWeek.Samples;
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using System.Windows;
+
     sealed class MainViewModel : BaseViewModel
     {
         WebsiteAccessor _accessor;
