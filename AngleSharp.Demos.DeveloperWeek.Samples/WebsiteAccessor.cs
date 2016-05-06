@@ -45,7 +45,7 @@
         {
             var document = _context.Active;
             var link = document.QuerySelector<IHtmlAnchorElement>(selector);
-            await (link?.Navigate() ?? (Task)Task.FromResult(false));
+            await (link?.NavigateAsync() ?? (Task)Task.FromResult(false));
         }
 
         public string GetTextOf(string selector)
@@ -68,7 +68,7 @@
                     element.Value = value;
             }
 
-            await form.Submit();
+            await form.SubmitAsync();
         }
     }
 }
