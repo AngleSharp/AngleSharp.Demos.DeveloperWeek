@@ -3,14 +3,18 @@
     using AngleSharp.Services;
     using System;
 
-    sealed class SharedCookieService : ICookieService
+    sealed class SharedCookieService : ICookieProvider
     {
         String _cookie;
 
-        public String this[String origin]
+        public String GetCookie(String origin)
         {
-            get { return _cookie; }
-            set { _cookie = value; }
+            return _cookie;
+        }
+
+        public void SetCookie(String origin, String value)
+        {
+            _cookie = value;
         }
     }
 }
