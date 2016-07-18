@@ -17,3 +17,9 @@ The sample website, which can be found in *AngleSharp.Demos.DeveloperWeek.Websit
 * Handling cookies (e.g., login to a webpage)
 
 If you have anything to add to the samples, then feel free to do so. Push requests are always highly appreciated.
+
+## Video of the Demo
+
+The demo has been shown at a talk given at a conference in Nuremberg, Germany. The talk is freely available at [Channel 9 from Microsoft](https://channel9.msdn.com/events/community-germany/Developer-Week/Modern-DOM-manipulation-with-Csharp).
+
+<iframe src="https://channel9.msdn.com/Events/community-germany/Developer-Week/Modern-DOM-manipulation-with-Csharp/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
