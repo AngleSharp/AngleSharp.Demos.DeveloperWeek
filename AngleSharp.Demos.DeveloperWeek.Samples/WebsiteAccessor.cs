@@ -9,9 +9,9 @@
 
     public class WebsiteAccessor
     {
-        readonly IBrowsingContext _context;
+        private readonly IBrowsingContext _context;
 
-        WebsiteAccessor(IBrowsingContext context)
+        private WebsiteAccessor(IBrowsingContext context)
         {
             _context = context;
         }

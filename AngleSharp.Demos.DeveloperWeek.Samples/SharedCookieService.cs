@@ -5,7 +5,7 @@
 
     sealed class SharedCookieService : ICookieProvider
     {
-        String _cookie;
+        private String _cookie;
 
         public String GetCookie(String origin)
         {
