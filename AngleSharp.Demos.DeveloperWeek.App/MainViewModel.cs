@@ -44,13 +44,13 @@
         public String Content
         {
             get { return _content; }
-            private set { _content = value; TriggerChanged(); }
+            set { _content = value; TriggerChanged(); }
         }
 
         public String Address
         {
             get { return _address; }
-            private set { _address = value; TriggerChanged(); }
+            set { _address = value; TriggerChanged(); }
         }
 
         public String Selector

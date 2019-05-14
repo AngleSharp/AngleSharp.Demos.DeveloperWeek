@@ -1,7 +1,7 @@
 ﻿namespace AngleSharp.Demos.DeveloperWeek.Samples
 {
-    using AngleSharp.Dom.Html;
-    using AngleSharp.Extensions;
+    using AngleSharp.Dom;
+    using AngleSharp.Html.Dom;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -25,21 +25,15 @@
 
             var config = Configuration.Default
                 .WithDefaultLoader()
-                .With(new SharedCookieService());
+                .WithCookies();
             var context = BrowsingContext.New(config);
             await context.OpenAsync(url);
             return new WebsiteAccessor(context);
         }
 
-        public string CurrentSource
-        {
-            get { return _context.Active.ToHtml(); }
-        }
+        public string CurrentSource => _context.Active.ToHtml();
 
-        public string CurrentUrl
-        {
-            get { return _context.Active.Url; }
-        }
+        public string CurrentUrl => _context.Active.Url;
 
         public async Task NavigateToLink(string selector)
         {
@@ -62,10 +56,10 @@
 
             foreach (var element in elements.OfType<IHtmlInputElement>())
             {
-                var value = default(String);
-
-                if (fields.TryGetValue(element.Name ?? String.Empty, out value))
+                if (fields.TryGetValue(element.Name ?? String.Empty, out string value))
+                {
                     element.Value = value;
+                }
             }
 
             await form.SubmitAsync();
